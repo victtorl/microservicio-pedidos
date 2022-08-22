@@ -9,6 +9,7 @@ import model.Pedido;
 
 
 
+
 @Repository
 public class PedidosDaoImpl implements PedidosDao {
 	@Autowired
@@ -26,6 +27,16 @@ public class PedidosDaoImpl implements PedidosDao {
 	@Override
 	public List<Pedido> devolverPedidosPendientes() {		
 		return pedidos.findAll();
+	}
+	
+	@Override
+	public void guardarPedidoDAO(Pedido pedido) {
+		 pedidos.save(pedido);
+	}
+	
+	@Override
+	public Pedido obtenerPedidoporIdDAO(Integer id) {
+		return pedidos.findById(id).get();
 	}
 	
 }

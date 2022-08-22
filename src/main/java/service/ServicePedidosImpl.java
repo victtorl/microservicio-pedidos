@@ -8,6 +8,8 @@ import dao.PedidosDao;
 import model.Pedido;
 
 
+
+
 @Service
 public class ServicePedidosImpl implements ServicePedidos {
 	@Autowired
@@ -26,5 +28,15 @@ public class ServicePedidosImpl implements ServicePedidos {
 	public List<Pedido> devolverPedidosPendientesService() {
 		List <Pedido> pedidos = dao.devolverPedidos();
 		return pedidos.stream().filter(t->t.getEstado()==2).collect(Collectors.toList());
+	}
+	
+	
+	public void guardarPedido(Pedido pedido) {
+	     dao.guardarPedidoDAO(pedido);
+	}
+	
+
+	public Pedido  obtenerPedidoxID(Integer id) {
+		return dao.obtenerPedidoporIdDAO(id);
 	}
 }
