@@ -66,7 +66,14 @@ public class PedidosController {
 		try {
 			Pedido pedidoexistente=service.obtenerPedidoxID(id);
 			
+			pedidoexistente.setCantidad(pedido.getCantidad());
+			pedidoexistente.setDetalle(pedido.getDetalle());
 			pedidoexistente.setEstado(pedido.getEstado());
+			pedidoexistente.setFecha(pedido.getFecha());
+			pedidoexistente.setPrecio(pedido.getPrecio());
+			
+			
+			
 			
 			service.guardarPedido(pedidoexistente);
 			
